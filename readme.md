@@ -14,3 +14,8 @@ cd tests
 python -m unittest test_valid_page -vvv
 cd -
 ```
+
+### 4. To all unittests, type:
+```
+python -m run_tests
+```

@@ -10,7 +10,7 @@ class TestValidPage(unittest.TestCase):
     parser = None
 
     def setUpClass():
-        config = list(yaml.safe_load_all(open('../run_config.yaml')))
+        config = list(yaml.safe_load_all(open('run_config.yaml')))
         config = {k: v for x in config for k, v in x.items()}
         TestValidPage.config = config['config']
 
