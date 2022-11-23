@@ -1,7 +1,16 @@
 # Copyright (c) @kkahloots
 
+import os
 import unittest
 from tqdm import tqdm
+from prefect import task
+from utils import logger
+
+@task
+@logger
+def run_unittests():
+    os.system('python -m unittests')
+
 
 if __name__ == '__main__':
     loader = unittest.TestLoader()

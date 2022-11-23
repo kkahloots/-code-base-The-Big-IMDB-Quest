@@ -1,3 +1,4 @@
 config:
+  pipeline_name: "The Big IMDB quest test report"
   url: "https://www.imdb.com/chart/top/"
   title: "IMDb Top 250 Movies"

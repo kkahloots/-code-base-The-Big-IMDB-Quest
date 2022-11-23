@@ -1,18 +1,17 @@
 # Copyright (c) @kkahloots
 
-import yaml
+
 import unittest
 import requests
 from bs4 import BeautifulSoup
+from utils import get_config
 
 class TestValidPage(unittest.TestCase):
     config = None
     parser = None
 
     def setUpClass():
-        config = list(yaml.safe_load_all(open('run_config.yaml')))
-        config = {k: v for x in config for k, v in x.items()}
-        TestValidPage.config = config['config']
+        TestValidPage.config = get_config()
 
         req = requests.get(TestValidPage.config['url']).content
         TestValidPage.parser = BeautifulSoup(req, 'html.parser')

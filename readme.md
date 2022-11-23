@@ -17,5 +17,10 @@ cd -
 
 ### 4. To all unittests, type:
 ```
-python -m run_tests
+python -m unittests
+```
+
+### 5. To all The pipeline, type:
+```
+python -m pipeline
 ```
