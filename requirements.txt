@@ -1,3 +1,5 @@
 beautifulsoup4
 tqdm
 prefect
+lxml
+pandas

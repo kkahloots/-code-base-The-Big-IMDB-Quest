@@ -2,9 +2,8 @@
 
 
 import unittest
-import requests
-from bs4 import BeautifulSoup
 from utils import get_config
+from scraper import request_page
 
 class TestValidPage(unittest.TestCase):
     config = None
@@ -12,9 +11,8 @@ class TestValidPage(unittest.TestCase):
 
     def setUpClass():
         TestValidPage.config = get_config()
-
-        req = requests.get(TestValidPage.config['url']).content
-        TestValidPage.parser = BeautifulSoup(req, 'html.parser')
+        top_url = f"{TestValidPage.config['base_url']}{TestValidPage.config['top_path']}"
+        TestValidPage.parser = request_page(top_url)
 
     def test_has_title(self):
         pageTitle = TestValidPage.parser.find('h1').get_text()

@@ -22,5 +22,5 @@ python -m unittests
 
 ### 5. To all The pipeline, type:
 ```
-python -m pipeline
+python -m main
 ```
