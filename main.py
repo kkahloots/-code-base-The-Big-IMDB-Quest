@@ -33,7 +33,8 @@ def imdb_pipeline(config):
     start_pipeline()
     run_unittests()
     movie_df = scrape_task(config)
-    adjusted_movie_df = adjust_rating_task(movie_df)
+    movie_df = adjust_rating_task(movie_df)
+    movie_df.to_csv(f"movies_top_{config['top_n']}.csv")
     end_pipeline()
 
 if __name__ == '__main__':
