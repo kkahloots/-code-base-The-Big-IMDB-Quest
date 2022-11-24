@@ -83,4 +83,4 @@ def scrape(base_url, top_path, top_n):
         movie_df.loc[len(movie_df)] = data
 
     return movie_df.sort_index(ascending=False).reset_index(drop=True) \
-        .astype({'rating': 'float64', 'num_oscars': 'int64'})
+        .astype({'rating': float, 'num_oscars': int, 'num_ratings': float})

@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from utils import get_config
 from unittests import run_unittests
 from scraper import scrape
+from review_penalizer import adjust_rating
 
 @task
 def start_pipeline():
@@ -23,12 +24,16 @@ def scrape_task(config):
     top_bath = config['top_path']
     return scrape(base_url, top_bath, top_n)
 
+@task
+def adjust_rating_task(movie_df):
+    return adjust_rating(movie_df)
 
 @flow(name=get_config()['pipeline_name'])
 def imdb_pipeline(config):
     start_pipeline()
     run_unittests()
     movie_df = scrape_task(config)
+    adjusted_movie_df = adjust_rating_task(movie_df)
     end_pipeline()
 
 if __name__ == '__main__':
